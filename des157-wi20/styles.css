@@ -6,7 +6,7 @@ main {
 main div{
   margin:1em;
   padding:2em;
-  background-image: url("images/trees.jpg");
+  background-image: url("Images/trees.jpg");
   background-size: 100%;
   background-position:center bottom;
   background-repeat:no-repeat;
@@ -23,7 +23,7 @@ h1, h2, h3 {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  background-image: url("images/vcity.jpg");
+  background-image: url("Images/vcity.jpg");
   background-size: 100%;;
   background-position:right center;
 }
@@ -105,19 +105,19 @@ h3{
   }
 
   main div:first-child{
-    background-image: url("images/tree1.jpg");
+    background-image: url("Images/tree1.jpg");
     background-size: 100%;
     background-position:center bottom;
   }
 
   main div:nth-child(2){
-    background-image: url("images/tree2.jpg");
+    background-image: url("Images/tree2.jpg");
     background-size: 100%;
     background-position:center bottom;
   }
 
   main div:last-child{
-    background-image: url("images/tree3.jpg");
+    background-image: url("Images/tree3.jpg");
     background-size: 100%;
     background-position: center bottom;
   }
