@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>JS Function Exmperimentation</title>
+</head>
+
+<body>
+    <h1>JS Function Experimentation</h1>
+    <p></p>
+    <script>
+        function temp(num){
+            var e = (Math.ceil(Math.random()*num+Math.random()*10));
+            return e;
+        }
+        
+        function chooseDes(num, des){
+            var choice = (temp(num)+des.length)%des.length;
+            return des[choice];
+        }
+
+        function printC(c){
+            console.log(`I see that you will be a ${c[0]} ${c[1]}. You will have ${c[2]} kids and live in a ${c[3]} in the ${c[4]}. You will drive a ${c[5]} ${c[6]}. However, all of this will happen only if you ${c[7]}.`)
+        }
+        
+        var num = prompt("Pick a number between 0-10 to learn your fortune.");
+        var adj = ["wonderful", "great", "rich", "beautiful", "handsome", "lucky", "loved", "successful", "popular", "dazzling", "fit", "ambitious", "delightful", "happy", "witty", "kind"];
+        var occup = ["pilot", "explorer", "biologist", "doctor", "dentist", "zookeeper", "graphic designer", "web designer", "product designer", "architect"];
+        var kids = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        var house = ["mansion", "shack", "cabin", "apartment", "townhouse", "box", "house"];
+        var loc = ["beach", "city", "countryside", "farm", "suburb", "mountains", "forest", "swamp"];
+        var col = ["red", "black", "dark blue", "neon green", "purple","white", "silver"];
+        var car = ["honda", "lamborghini", "ferrari", "toyota", "suburu", "kia", "lexus", "tesla", "bmw", "mercedes", "infiniti", "mazda", "acura"];
+        var cat = ["eat your vegetables", "make daring decisions", "play it safe", "be kind to others", "study hard", "stay optomistic", "challenge yourself", "dress well and have great hygiene", "perform charitable actions"];
+        var sel = [];
+        var arr = [adj, occup, kids, house, loc, col, car, cat];
+
+        while(!parseInt(num)||(num>10)||(num<0)){
+            num = prompt("Please pick a number between 0-10");
+        }
+
+        for (var i=0; i<arr.length; i++){
+            sel.push(chooseDes(num, arr[i]));
+        }
+        
+        printC(sel);
+
+    </script>
+</body>
+</html>
