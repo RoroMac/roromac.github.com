@@ -1,3 +1,8 @@
+h1, h2{
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
 main {
   max-width:1200px;
   text-align:center;
@@ -6,26 +11,58 @@ main {
 main div{
   margin:1em;
   padding:2em;
-  background-image: url("Images/trees.jpg");
+}
+
+main div:first-child{
+  background-image: url("Images/trees1.jpg");
   background-size: 100%;
-  background-position:center bottom;
+  background-position: 10% 90%;
   background-repeat:no-repeat;
+  transition: background-image 2s;
+}
+
+main div:first-child:hover{
+  background-image: url("Images/trees.jpg")
+}
+
+main div:nth-child(2){
+  background-image: url("Images/thouse1.jpg");
+  background-position: right bottom;
+  background-size: cover;
+  background-repeat:no-repeat;
+  transition: background-image 2s;
+}
+
+main div:nth-child(2):hover{
+  background-image: url("Images/thouse.jpg")
+}
+
+main div:nth-child(3){
+  background-image: url("Images/dock1.jpg");
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-position:center bottom;
+  transition: background-image 2s ease-in-out;
+}
+
+main div:nth-child(3):hover{
+  background-image: url("Images/dock.jpg");
 }
 
 h1, h2, h3 {
   font-family:'Montserrat', sans-serif;
 }
 
+
 #mySketch{
   height:250px;
   max-width:800px;
-  background-color: #F0ABCD;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  background-image: url("Images/vcity.jpg");
+  background-image: url("Images/nola.jpg");
   background-size: 100%;;
-  background-position:right center;
+  background-position:30% 50%;
 }
 
 header{
@@ -61,6 +98,11 @@ ul li{
   padding-left:0;
   margin-left: -2.5em;
   color: #FFFFFF;
+  transition: color 1s;
+}
+
+ul li:hover{
+  color:rgb(236, 214, 208);
 }
 
 h3{
@@ -77,6 +119,14 @@ a:link{
 
 a:visited{
   color: #FFFFFF;
+}
+
+ul li a:link{
+  transition: color 1s;
+}
+
+ul li a:hover{
+  color: rgb(236, 214, 208);
 }
 
 footer a:link{
@@ -120,24 +170,21 @@ footer a:visited{
   }
 
   main h3:first-child{
-    padding-top:2em;
+    padding-top:1.5em;
   }
 
   main div:first-child{
-    background-image: url("Images/tree1.jpg");
-    background-size: 100%;
+    background-size: cover;
     background-position:center bottom;
   }
 
   main div:nth-child(2){
-    background-image: url("Images/tree2.jpg");
-    background-size: 100%;
+    background-size: cover;
     background-position:center bottom;
   }
 
   main div:last-child{
-    background-image: url("Images/tree3.jpg");
-    background-size: 100%;
+    background-size: cover;
     background-position: center bottom;
   }
 }

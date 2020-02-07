@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Distance Converter</title>
+
+	<!--/ /-------- Normalize CSS --------/ /-->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+	
+	<!--/ /-------- Google Fonts --------/ /-->
+	<link href="https://fonts.googleapis.com/css?family=Oswald|PT+Sans&display=swap" rel="stylesheet">
+	
+	<!--/ /-------- My Styles --------/ /-->
+	<link href="styles.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<h1>Miles to Kilometers Converter</h1>
+    
+    <div class="container top">
+    	<p>Type in a number of miles and click the button to convert the distance to kilometers.</p>
+        
+        <form method="post" action="somephpfile.php" id="convert">
+        
+        	<input type="text" name="distance" id="distance" placeholder="distance">
+            <input type="submit" name="convertdist" value="Convert Distance">
+        
+        </form>
+    </div>
+    <div class="container bottom" id="answer">
+    	<h2 class="invisible">Answer goes here</h2>
+    </div>
+    
+    <p id="directions">Press the "K" key to switch to kilometer converstion, press the "M" key to switch to mile conversion</p>
+	<script>
+		//k for kilometers
+		//m for miles
+		//1 kilometer for 0.621371192
+		//round to three decimals
+
+		//selects kilometers or miles
+		var choice ="M";
+		var titxt = document.querySelector("h1");
+		var w1 = "Miles";
+		var w2 = "Kilometers";
+		//senses km or miles
+		document.addEventListener('keydown', function(e){
+			var whichKey = String.fromCharCode(e.which);
+			if (whichKey=="K"){
+				titxt.innerHTML="Kilometers to Miles Converter";
+				w1 = "Kilometers";
+				w2 = "Miles";
+				choice = whichKey;
+			}
+			else if(whichKey=="M"){
+				titxt.innerHTML="Miles to Kilometers Converter";
+				w1 = "Miles";
+				w2 = "Kilometers"
+				choice = whichKey;
+			}
+		});
+
+		//
+		//access the form
+		var myForm = document.querySelector('form');
+		myForm.addEventListener('submit', function(event){
+			event.preventDefault();
+			var txt = document.getElementsByClassName("invisible");
+			//get the form data
+			var formData = document.querySelector('input').value;
+			
+			if (!parseFloat(formData)){
+				txt[0].innerHTML = "Please Enter a Number";
+				txt[0].style.color="black";
+			}
+
+			else{
+				var value = sense(choice, formData);
+				txt[0].innerHTML = `${formData} ${w1} is ${value} ${w2}`;
+			}
+		});
+		
+		//function to decide choice between km or miles
+		function sense(ch, x){
+			var num;
+			if(ch=="K"){
+				num = km(x);
+			}
+			else if(ch=="M"){
+				num = mile(x);
+			}
+			return num;
+		}
+
+		//miles to kilometers
+		function mile(x){
+			var num = x *1.60934;
+			num = num.toFixed(3);
+			return num;
+		}
+
+		//km to miles
+		function km(x){
+			var num = x*0.621371;
+			num = num.toFixed(3);
+			return num;
+		}
+
+	</script>
+</body>
+</html>
