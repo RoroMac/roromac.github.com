@@ -40,8 +40,11 @@
 
 		//access the form
 		var myForm = document.querySelector('form');
+		//set convert distance as the event listener
 		myForm.addEventListener('submit', function(event){
+			//prevents from going to a new page
 			event.preventDefault();
+			//set txt at the bottom <-indexed as an array
 			var txt = document.getElementsByClassName("invisible");
 			//get the form data
 			var formData = document.querySelector('input').value;
@@ -55,6 +58,7 @@
 				//function to round variable
 				num = parseFloat(num.toFixed(3));
 				txt[0].innerHTML = `${formData} miles converts to ${num} kilometers`;
+				txt[0].style.color="black";
 			}
 		});
 	</script>
