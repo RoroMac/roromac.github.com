@@ -1,5 +1,6 @@
 (function(){
     "use strict";
+    const pe = document.querySelector("p");
     //changeable element
     let txt= document.getElementById("change");
     //access form data
@@ -12,5 +13,8 @@
                       While it might take them years, they felt ${formData[4].value} about their future goals.`;
         let imFun = document.querySelector("div");
         imFun.style.visibility= "visible";
+        myForm.style.visibility="hidden";
+        pe.style.visibility="hidden";
+        txt.style.marginTop="-17em";
     })
 }());
