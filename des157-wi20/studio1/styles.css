@@ -11,9 +11,28 @@ h1{
     font-size:5em;
     font-weight:lighter;
     margin-bottom:-0.1em;
+    text-align:center;
 }
 
 main{
     font-family: Quicksand, sans-serif;
-    text-align: center;
+}
+
+label{
+    display:block;
+}
+
+input{
+    margin-bottom:0.5em;
+}
+
+div{
+    background-image:url("images/deskstuff.png");
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    visibility: hidden;
+    max-width: 100%;
+    height: 500px;
+    padding: 2em;
 }
