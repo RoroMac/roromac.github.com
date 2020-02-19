@@ -10,7 +10,7 @@ var v=15;
 
 function setup() {
   var myCanvas = createCanvas(800,250);
-  frameRate(8);
+  frameRate(15);
   dx = (TWO_PI / period) * xspacing;
   myCanvas.parent(mySketch);
 }
@@ -18,14 +18,25 @@ function setup() {
 function draw() {
   background(0);
   stroke(255);
-  line(0, mouseY, width, mouseY);
-  fill(255,100);
-  noStroke();
-  ellipse(mouseX, mouseY, v*2,v*2);
-  fill(0,255);
-  ellipse(mouseX, mouseY,v,v);
-  calcWave();
-  renderWave();
+  if(mouseY<300){line(0, mouseY, width, mouseY);
+    fill(255,100);
+    noStroke();
+    ellipse(mouseX, mouseY, v*2,v*2);
+    fill(0,255);
+    ellipse(mouseX, mouseY,v,v);
+    calcWave();
+    renderWave();
+  }
+  else{
+    line(0, 125, width, 125);
+    fill(255,100);
+    noStroke();
+   ellipse(400, 125, v*2,v*2);
+    fill(0,255);
+    ellipse(400, 125,v,v);
+    calcWave();
+    renderWave();
+  }
 }
 
 function calcWave() {
@@ -44,10 +55,20 @@ function renderWave() {
   noStroke();
   fill(255,150);
   // A simple way to draw the wave with an ellipse at each location
-  for (var x = 0; x < yvalues.length; x++) {
-    ellipse(x*xspacing, mouseY+yvalues[x], 5, 5);
-    ellipse(x*xspacing, mouseY+yvalues[x]*-1, 5, 5);
-    ellipse(x*xspacing-50, mouseY+yvalues[x], 5, 5);
-    ellipse(x*xspacing-75, mouseY+yvalues[x]*-1, 5, 5);
+  if (mouseY<300){
+    for (var x = 0; x < yvalues.length; x++) {
+      ellipse(x*xspacing, mouseY+yvalues[x], 5, 5);
+      ellipse(x*xspacing, mouseY+yvalues[x]*-1, 5, 5);
+      ellipse(x*xspacing-50, mouseY+yvalues[x], 5, 5);
+      ellipse(x*xspacing-75, mouseY+yvalues[x]*-1, 5, 5);
+    }
+  }
+  else{
+    for (var x = 0; x < yvalues.length; x++) {
+      ellipse(x*xspacing, 125+yvalues[x], 5, 5);
+      ellipse(x*xspacing, 125+yvalues[x]*-1, 5, 5);
+      ellipse(x*xspacing-50, 125+yvalues[x], 5, 5);
+      ellipse(x*xspacing-75, 125+yvalues[x]*-1, 5, 5);
+    }
   }
 }

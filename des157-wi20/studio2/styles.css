@@ -1,0 +1,148 @@
+h1, h2, h3, h4, h5{
+    font-family: 'Quicksand';
+    font-weight: lighter;
+}
+
+p{
+    font-family: 'Montserrat';
+}
+
+h1{
+    text-decoration:underline;
+}
+
+h2{
+    margin-left:50px;
+}
+
+div h2{
+    text-decoration:underline;
+    text-decoration-color: red;
+}
+
+span{
+    color:red;
+}
+
+#one div:first-child{
+    width:900px;
+    height:700px;
+    background: no-repeat center url("images/outlet.png");
+    max-width:100%;
+    background-size: 900px 700px;
+    margin-top:8em;
+}
+
+#one .text{
+    position:absolute;
+    top: 500px;
+    left: 750px;
+    text-align:left;
+    display:block;
+    opacity:1;
+    transition:all 2s;
+}
+
+#one .clear{
+    position:absolute;
+    top: 500px;
+    left: 750px;
+    text-align:left;
+    display:block;
+    opacity:0;
+    transition:all 2s;
+}
+
+
+div h2{
+    margin-left:-0.1em;
+}
+
+#two div:first-child{
+    width:900px;
+    height:700px;
+    background: no-repeat center url("images/laptop.png");
+    max-width:100%;
+    background-size: 900px 700px;
+}
+
+#two .text{
+    position:absolute;
+    top: 200px;
+    left: 800px;
+    text-align:left;
+    display:block;
+    opacity: 1;
+    transition: all 2s;
+}
+
+#two .clear{
+    position:absolute;
+    top: 200px;
+    left: 800px;
+    text-align:left;
+    display:block;
+    opacity: 0;
+    transition: all 1s;
+}
+
+#three div:first-child{
+    width:900px;
+    height:700px;
+    background: no-repeat center url("images/phone.png");
+    max-width:100%;
+    background-size: 900px 700px;
+}
+
+#three .text{
+    position:absolute;
+    top: 270px;
+    left: 650px;
+    text-align:left;
+    display:block;
+    opacity: 1;
+    transition: 2s;
+}
+
+#three .clear{
+    position:absolute;
+    top: 270px;
+    left: 650px;
+    text-align:left;
+    display:block;
+    opacity:0;
+    transition: 1s;
+}
+
+body{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    overscroll-behavior: none;
+}
+
+header, #one, #two, #three{
+    display: inline-block;
+    margin-left: 30em;
+    margin-right:30em;
+    margin-top: -7em;
+    position:relative;
+}
+
+#one{
+    margin-left:50em;
+}
+
+#three{
+    margin-right:120em;
+}
+
+header{
+    float:left;
+    margin-left:1600px;
+    margin-top:250px;
+}
+
+header:after{
+    clear:both;
+}
