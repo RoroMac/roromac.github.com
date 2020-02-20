@@ -3,7 +3,7 @@ h1, h2, h3, h4, h5{
     font-weight: lighter;
 }
 
-p{
+p, a{
     font-family: 'Montserrat';
 }
 
@@ -96,8 +96,8 @@ div h2{
 
 #three .text{
     position:absolute;
-    top: 270px;
-    left: 650px;
+    top: 250px;
+    left: 675px;
     text-align:left;
     display:block;
     opacity: 1;
@@ -106,12 +106,16 @@ div h2{
 
 #three .clear{
     position:absolute;
-    top: 270px;
-    left: 650px;
+    top: 250px;
+    left: 675px;
     text-align:left;
     display:block;
     opacity:0;
     transition: 1s;
+}
+
+.left, .right{
+    font-size:20px;
 }
 
 body{
@@ -123,19 +127,20 @@ body{
 
 header, #one, #two, #three{
     display: inline-block;
-    margin-left: 30em;
-    margin-right:30em;
+    margin-left: 825px;
+    margin-right:825px;
     margin-top: -7em;
     position:relative;
 }
 
-#one{
-    margin-left:50em;
+#four{
+    display: inline-block;
+    margin-left: 825px;
+    margin-right:1700px;
+    margin-top: -14em;
+    position:relative;
 }
 
-#three{
-    margin-right:120em;
-}
 
 header{
     float:left;
@@ -146,3 +151,14 @@ header{
 header:after{
     clear:both;
 }
+
+
+#four a:link{
+    color: #000000;
+    text-decoration:none;
+  }
+  
+#four a:visited{
+    color: #000000;
+    text-decoration:none;
+  }
