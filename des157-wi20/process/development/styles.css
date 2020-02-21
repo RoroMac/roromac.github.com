@@ -28,6 +28,20 @@ body {
     margin-bottom:-1.5em;
   }
 
+  #sstorm{
+    background-image: url("images/sketch.jpg");
+    background-size:75%;
+    height:800px;
+    max-width:100%;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center center;
+    margin-left:auto;
+    margin-right:auto;
+    align-items:center;
+    margin-bottom:-1.5em;
+  }
+
   p span{
     color:#FFFFFF;
   }
