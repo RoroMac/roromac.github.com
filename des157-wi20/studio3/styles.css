@@ -1,0 +1,96 @@
+.health{
+    width:25em;
+    height:1.5em;
+    margin: 1em;
+    border-radius:5px;
+    border: solid 3px black;
+}
+
+.pic{
+    height: 500px;
+    width:400px;
+    max-width:100%;
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+
+#red .health{
+    background-color:red;
+}
+
+#red .pic{
+    background-image: url("images/red.png");
+}
+
+#blue .health{
+    background-color: blue;
+}
+
+#blue .pic{
+    background-image: url("images/blue.png");
+}
+
+#flo{
+    display: flex;
+    justify-content:center;
+}
+
+#flo div{
+    margin:2em;
+}
+
+header{
+    text-align:center;
+    margin-bottom:-4em;
+    padding-top:1em;
+}
+
+h1{
+    font-family:'Quicksand';
+    font-size:40px;
+    font-weight:bolder;
+}
+
+body{
+    width: 75%;
+    margin: auto;
+    font-family: "Montserrat";
+}
+
+#choice{
+    margin-top:-3em;
+    display:block;
+    text-align:center;
+}
+
+button{
+    padding:20px;
+    padding-left:30px;
+    padding-right:30px;
+    margin-left:10px;
+    margin-right:10px;
+    border-radius:5px;
+    background-color: red;
+    color: white;
+    box-shadow: 5px 5px  2px gray;
+}
+
+h4{
+    text-align:center;
+    font-size:40px;
+    font-weight:bold;
+    margin-top:-4.5em;
+}
+
+#red h4{
+    color:red;
+}
+
+#blue h4{
+    color: blue;
+}
+
+#lword{
+    text-align:center;
+    font-size:40px;
+}

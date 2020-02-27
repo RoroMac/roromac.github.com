@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fight On</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Quicksand&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Fight!</h1>
+    </header>
+    <main>
+    <div id="flo">
+        <div id="red">
+            <div class = "health"></div>
+            <div class = "pic"></div>
+            <h4>100%</h4>
+        </div>
+        <div id="blue">
+            <div class = "health"></div>
+            <div class = "pic"></div>
+            <h4>100%</h4>
+        </div>
+    </div>
+    <div id= "choice">
+        <button id ="fight">Fight</button>
+        <button id="defend">Defend</button>
+        <button id="farm">Farm</button>
+        <button id="run">Run Away</button>
+    </div>
+    <div id="lword"></div>
+    </main>
+</body>
+
+<script>
+
+    class Person{
+        constructor(name, hBar, hlth){
+            this.name = name;
+            this.hBar=hBar; //color of healthbar
+            this.hShow=hlth; // what is being displayed in health number
+            this.hNum = 100; //number at health
+            this.choice; //choice being selected
+            this.stun = 0; //detect if stunned
+            this.wait = 0; //how many turns if stunned (3-0)
+        }
+    }
+
+    function turn(gin){ //returns the selection
+        if (gin == 0){
+            return 'red';
+        }
+        else{
+            return 'blue';
+        }
+    }
+
+    function def(per, t){
+        setTimeout(function(){
+            t.innerHTML = `${per} defends!`
+        },500);
+    }
+
+    //change colors for who goes next
+    function sturn(gin, butt, txt){
+        if(gin == 0){ //gin 0 is red & gin 1 is blue
+            for(var i=0; i<butt.length;i++){
+            butt[i].style.backgroundColor="red";
+            txt.innerHTML=`<p>${turn(gin)}'s Turn &larr;</p>`;
+        }
+    }
+        else{
+            for(var i=0; i<butt.length;i++){
+            butt[i].style.backgroundColor="blue";
+            txt.innerHTML=`<p>${turn(gin)}'s Turn &rarr;</p>`;
+            }
+        }
+    }
+
+    //function to gain health
+    function gHealth(per, rnum, txt){
+        var x = 0;
+        if (per.hNum >= 100){
+            rnum = 0;
+        }
+        else if ( (per.hNum + rnum)>100){
+            x = 100-per.hNum;
+        }
+        else{
+            x=rnum;
+        }
+        per.hNum += x;
+        per.hShow.innerHTML = `<p>${per.hNum}%</p>`
+        txt.innerHTML = `<p>${per.name} gained ${x} health!</p>`;
+    }
+
+    //function to attack
+    function aTT(per, m, d, c, t){
+        var block =0;
+        if (per.choice == 2){ //if the person is defending
+            block = Math.round(Math.random()*6);
+            per.choice =0;
+        }
+        if (m!=1){
+            if (c==1){
+                d+=10;
+            }
+            per.hNum-=d;
+            per.hNum-=block;
+            if (per.hNum < 0){
+                per.hNum = 0;
+            }
+        }
+        per.hShow.innerHTML = `<p>${per.hNum}%</p>`
+        t.innerHTML=`<p>${per.name} lost ${d} health!</p>`;
+    }
+
+    function close(p1, p2, t, r, ee){
+        var wint =''
+        if (p1.hNum <= 0){
+            t.innerHTML = `<p>${p2.name} wins!</p>`;
+            p1.hBar.style.transition = "all 1s";
+            p1.hBar.style.backgroundColor = "white";
+            clearTimeout(ee);
+            while(r.firstChild){
+                r.removeChild(r.firstChild);
+            }
+        }
+        else if (p2.hNum <= 0){
+            t.innerHTML = `<p>${p1.name} wins!</p>`;
+            while(r.firstChild){
+                r.removeChild(r.firstChild);
+            }
+            p2.hBar.style.transition = "all 1s";
+            p2.hBar.style.backgroundColor = "white";
+            clearTimeout(ee);
+        }
+    }
+
+    var nTxt = document.getElementById("lword");
+    var winner;
+
+    var hBar =document.querySelector("#red .health");
+    var hlth= document.querySelector("#red h4");
+
+    var red = new Person('red', hBar, hlth); //init red char
+
+    var shBar =document.querySelector("#blue .health");
+    var shlth = document.querySelector("#blue h4");
+
+    var blue = new Person('blue', shBar, shlth); //init blue char
+
+    //choose who goes first
+    var gin = Math.round(Math.random());
+    var butt = document.querySelectorAll("button");
+
+    var f = document.getElementById("fight");
+    var d= document.getElementById("defend");
+    var h = document.getElementById("farm");
+    var r = document.getElementById("run");
+
+    var e = setTimeout(function(){sturn(gin, butt, nTxt);}, 600);
+
+    sturn(gin, butt, nTxt);
+
+    //event listener attack
+    f.addEventListener("click", function(e){
+        var miss = Math.round(Math.random()*14);
+        var dam = Math.round(Math.random()*10)+4;
+        var crit = Math.round(Math.random()*50);
+        if (gin == 0){
+            aTT(blue, miss, dam, crit, nTxt);
+            red.choice= 0;
+        }
+        else{
+            aTT(red, miss, dam, crit, nTxt);
+            blue.choice = 0;
+        }
+        gin= (gin+1)%2; //changes attack
+        e;
+        var remo = document.getElementById('choice');
+        close(red, blue, nTxt, remo, e);
+    });
+
+    //event listener defend
+    d.addEventListener("click", function(e){
+        if (gin == 0){
+            red.choice = 2;
+            def(red.name, nTxt);
+        }
+        else{
+            blue.choice = 2;
+            def(blue.name, nTxt);
+        }
+        clearTimeout(d);
+    });
+
+    //event listener heal
+    //update health bar animation
+    h.addEventListener("click", function(e){
+        //gain health random to 20
+        var hinc = Math.round(Math.random()*10)+1;
+        //if loop to check who gains health
+        if(gin == 0){
+            gHealth(red, hinc, nTxt);
+            red.choice = 0;
+        }
+        else{
+            gHealth(blue, hinc, nTxt);
+            blue.choice = 0;
+        }
+        gin= (gin+1)%2;
+        e;
+    });
+
+    //event listener run away
+    //completed
+    r.addEventListener("click",function(e){
+        var p = '';
+        if (gin==0){
+            p = 'blue';
+            red.hShow.innerHTML = `<p>0%</p>`
+            red.hBar.style.transition = "all 1s";
+            red.hBar.style.backgroundColor = "white";  
+        }
+        else{
+            p = 'red';
+            blue.hShow.innerHTML = `<p>0%</p>`
+            blue.hBar.style.transition = "all 1s";
+            blue.hBar.style.backgroundColor = "white";
+
+        }
+        nTxt.innerHTML =`<p>${p} is the winner!</p>`
+        var remo = document.getElementById('choice');
+        while (remo.firstChild){
+            remo.removeChild(remo.firstChild);
+        }
+    });
+
+    
+
+    //Color of Health bar is Adjusted
+
+    //Selector choice
+
+    //Damage function - Critical Hit, miss, stunned
+
+    //Health lost
+
+    //Is the person stunned?
+
+    //Can attack or not attack
+
+    //Damage function random (critical hit) (miss))
+
+</script>
+</html>
