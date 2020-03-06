@@ -1,0 +1,27 @@
+#bgound{
+    background-image:url("images/stuff.png");
+    width: 1440px;
+    height: 746px;
+    max-width:100%;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    position:absolute;
+    top:50%;
+    right:50%;
+    transform: translate(50%, -50%);
+}
+
+body{
+    background-color: #000000;
+    display: block;
+    vertical-align: bottom;
+}
+
+#particles-js{
+    position: absolute;
+    width: 100%;
+    height:100%;
+    background-color: #000000;
+    position: bottom;
+}
