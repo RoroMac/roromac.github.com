@@ -25,3 +25,28 @@ body{
     background-color: #000000;
     position: bottom;
 }
+
+footer{
+    width:150px;
+    height:50px;
+    position: absolute;
+    bottom:50px;
+    left:200px;
+    z-index:1;
+    opacity:0.5;
+}
+
+p, a{
+    font-family: 'Montserrat';
+    font-size:12px;
+}
+
+a:link{
+    color: #000000;
+    text-decoration:none;
+  }
+
+a:visited{
+    color: #000000;
+    text-decoration:none;
+}
