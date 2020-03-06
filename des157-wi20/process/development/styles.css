@@ -56,6 +56,39 @@ body {
     box-shadow: 5px 5px 5px black;
   }
 
+  #c21, #c22, #c23, #c24, #c25{
+    height:800px;
+    width:600px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    box-shadow: 5px 5px 5px black;
+    margin-bottom:10px;
+  }
+
+  #c21{
+    background-image: url("images/toc.png")
+  }
+
+  #c22{
+    background-image: url("images/chapter1.png")
+  }
+
+  #c23{
+    background-image: url("images/chapter2.png")
+  }
+
+  #c24{
+    background-image: url("images/chapter3.png")
+  }
+
+  #c25{
+    background-image: url("images/chapter4.png")
+  }
+
   #des{
     text-align:left;
     width:80%;
@@ -101,4 +134,8 @@ body {
 
   footer a:visited{
       color: #000000;
+  }
+
+  #p22{
+    padding-left:100px;
   }
