@@ -1,0 +1,189 @@
+/*********** Basic Resets ************/
+h1, h2, h3, p, ol, li { 
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "montserrat";
+    font-weight: 300;
+    background-color:white;
+    text-align :center;
+    overflow: hidden;
+}
+
+header h5 span{
+    color: #E8495F;
+    cursor: help;
+}
+
+h1, h2, h3 {
+    font-family: "Quicksand";
+    font-weight: 400;
+}
+
+header h1 {
+    font-size: 40px;
+    color: black;
+    padding-top: 30px;
+    margin-bottom:-10px;
+    border-bottom: 1px solid;
+    width:200px;
+    margin: auto;
+}
+
+header{
+    background-color:white;
+    padding-bottom:50px;
+    padding-top:90px;
+}
+
+#choice{
+    pointer-events:none;
+}
+
+.showhead{
+    position: relative;
+    margin-top:100px;
+    opacity: 1;
+    transition: all 1s;
+}
+
+.clearHead{
+    margin-top:50px;
+    opacity:0;
+    transition: all 1s;
+}
+
+.clearfi{
+    margin-top: 300px;
+    opacity: 0;
+    transition: all 3s;
+}
+
+.showfi{
+    margin-top:-100px;
+    opacity: 0.5;
+}
+
+#choice .button{
+    background-color:white;
+    width: 120px;
+    height:40px;
+    margin-left:5px;
+    margin-right:5px;
+    color: black;
+    border-radius:17px;
+    transition: color .5s, background-color 1s, box-shadow .2s, border .2s;
+    border: 1px solid black;
+    font-size:14px;
+    box-shadow: 0px 3px 3px grey;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+#choice:hover > .button:hover{
+    background-color: #E8495F;
+    color: #EDE574;
+    box-shadow: 0px 0px 0px white;
+    border: none;
+    opacity: 1;
+}
+
+#choice:hover > .button{
+    background-color: #43ADA8;
+    border: none;
+    color: #ffffff;
+    opacity: 0.35;
+}
+
+#question{
+    font-size:13px;
+}
+
+#second{
+    position: absolute;
+    top: 0px;
+    left:0px;
+    width:10%;
+    height: 100vh;
+    background-color: #355C7D;
+    align-content:center;
+    visibility: collapse;
+    transition: all 1s;
+}
+
+#second div{
+    padding-top:15px;
+    padding-bottom: 15px;
+    margin: auto;
+    width:50px;
+    max-width:50px;
+    height: 50px;
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: all 1s;
+}
+
+#second div span{
+    visibility: collapse;
+}
+
+#second div p:hover{
+    color: #F7DB4E;
+}
+
+#add{
+    background-image: url("images/add.png");
+}
+
+#add:hover{
+    background-image: url("images/hadd.png");
+}
+
+#saved{
+    background-image: url("images/save.png");
+}
+
+#saved:hover{
+    background-image: url("images/hsave.png");
+    
+}
+
+#home{
+    background-image: url("images/home.png");
+}
+
+#home:hover{
+    background-image: url("images/hhome.png")
+}
+
+#random{
+    background-image: url("images/next.png");
+    padding-left:10px;
+}
+
+#random:hover{
+    background-image: url("images/hnext.png");
+}
+
+.container{
+    list-style:none;
+    padding-left: 11%;
+    margin-left:0px;
+    width:6000px;
+    text-align:left;
+}
+
+.container li{
+    display: inline-block;
+    width:10em;
+    height:10em;
+    margin: 20px;
+    padding:20px;
+    text-align:center;
+    background-color: #FDD3B5;
+    font-size: 11px;
+    border-radius: 13px;
+}

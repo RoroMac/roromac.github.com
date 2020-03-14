@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIoT</title>
+    <!--/ /-------- Normalize CSS --------/ /-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Quicksand&display=swap" rel="stylesheet">
+    
+    <!--/ /-------- Site Styling --------/ /-->
+    <link href="styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class = "showhead">
+        <h1>DIoT</h1>
+        <h5>An interactive demonstration to how we find something <span>new</span></h5>
+    </header>
+
+    <main>
+
+        <div id="first" class="clearfi">
+        <h5 id="question">What do you want to see?</h5>
+        <form id="choice">
+            <input type="button" class="button" value="art">
+            <input type="button" class="button" value="fun">
+            <input type="button" class="button" value="explore">
+            <input type="button" class="button" value="education">
+        </form>
+        </div>
+
+        <div id="second">
+            <div>
+                <a href="javascript:history.go(0)"><div id="home"></div></a>
+                <div id="add"></div>
+                <div id="saved"></div>
+                <div id="random"></div>
+            </div>
+        </div>
+
+        <div id="third">
+
+        </div>
+
+        <ol class="container">
+        </ol>
+
+    
+    </main>
+    <footer>
+    </footer>
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+     <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-database.js"></script>
+
+    <!--include anime libs-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script> -->
+    <!--include barba libs-->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/barba.js/1.0.0/barba.js"></script> -->
+    <!--include script file-->
+    <script src="script.js"></script>
+
+</body>
+</html>
